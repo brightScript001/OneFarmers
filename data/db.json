@@ -49,28 +49,12 @@
       "numberOfProducts": 50
     },
     {
-      "id": "d622",
-      "name": "Gloria Hensley",
-      "description": "Deleniti adipisicing",
-      "costPerKg": "72",
-      "productClass": "Eveniet consequuntu",
-      "numberOfProducts": "415"
-    },
-    {
-      "id": "e1f1",
-      "name": "Brian Mann",
-      "description": "Sit sed quis quo mol",
-      "costPerKg": "4",
-      "productClass": "Cum nostrum suscipit",
-      "numberOfProducts": "847"
-    },
-    {
-      "id": "3488",
-      "name": "Evangeline Padilla",
-      "description": "Exercitation omnis i",
-      "costPerKg": "85",
-      "productClass": "Enim sunt doloribus",
-      "numberOfProducts": "784"
+      "id": "c981",
+      "productName": "Premium Corn",
+      "description": "this is a new corn product",
+      "costPerKg": "100",
+      "productClass": "class 3",
+      "numberOfProducts": "20"
     }
   ]
 }

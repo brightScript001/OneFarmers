@@ -5,6 +5,7 @@ import ActionButtons from "./ActionButton";
 import ProductDetails from "./ProductDetails";
 import toast from "react-hot-toast";
 import styled from "styled-components";
+import { useAddProductContext } from "../../context/addProductContext";
 
 const Wrapper = styled.div`
   grid-area: create-product;
@@ -15,8 +16,10 @@ const StyledTitle = styled(Title)`
   text-align: start;
 `;
 
-function CreateProduct({ title, onClose, onProductCreated }) {
-  const { register, handleSubmit, reset, formState } = useForm();
+function CreateProduct({ title, onClose }) {
+  const { register, handleSubmit, control, reset, formState } = useForm();
+
+  const { refreshProducts } = useAddProductContext();
 
   const handleDelete = () => {
     reset();
@@ -37,9 +40,7 @@ function CreateProduct({ title, onClose, onProductCreated }) {
         throw new Error("Failed to create product");
       }
 
-      const result = await response.json();
-      console.log(result);
-      if (onProductCreated) onProductCreated();
+      if (refreshProducts) refreshProducts();
       toast.success("Product created successfully!");
       reset();
     } catch (error) {
@@ -51,7 +52,11 @@ function CreateProduct({ title, onClose, onProductCreated }) {
     <Wrapper>
       <StyledTitle>{title}</StyledTitle>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <ProductDetails register={register} formState={formState} />
+        <ProductDetails
+          register={register}
+          control={control}
+          formState={formState} // Pass formState
+        />
         <ActionButtons onClose={onClose} handleDelete={handleDelete} />
       </Form>
     </Wrapper>

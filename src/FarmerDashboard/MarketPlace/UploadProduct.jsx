@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "../../ui/Button";
 import { Title } from "../../ui/Title";
-import { useState } from "react";
+import { useAddProductContext } from "../../context/addProductContext";
 import CreateProduct from "./CreateProduct";
 
 const Wrapper = styled.div`
@@ -37,28 +37,25 @@ const StyledTitle = styled(Title)`
 `;
 
 function UploadProduct() {
-  const [showCreateProduct, setShowCreateProduct] = useState(false);
-
-  const handleClick = () => {
-    setShowCreateProduct(true);
-  };
-
-  const handleCreateProductClose = () => {
-    setShowCreateProduct(false);
-  };
+  const {
+    showCreateProduct,
+    handleCreateProductOpen,
+    handleCreateProductClose,
+    products,
+  } = useAddProductContext();
 
   return (
     <>
       {!showCreateProduct && (
         <Wrapper>
           <Text>
-            <StyledTitle>Your Current Uploaded Products </StyledTitle>
+            <StyledTitle>Your Current Uploaded Products</StyledTitle>
             <SpanContainer>
-              <Span>42 products</Span>
+              <Span>{products.length} products</Span>
             </SpanContainer>
           </Text>
           <ButtonWrapper>
-            <Button onClick={handleClick}>+ Add Products</Button>
+            <Button onClick={handleCreateProductOpen}>+ Add Products</Button>
           </ButtonWrapper>
         </Wrapper>
       )}

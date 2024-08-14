@@ -1,33 +1,98 @@
-import styled from "styled-components";
+import { TextField, Select, MenuItem } from "@mui/material";
+import { Controller } from "react-hook-form";
+import FormRow from "../../ui/FormRow";
+import TextArea from "../../ui/TextArea";
 
-const FormWrapper = styled.div`
-  /* Add your styling here */
-`;
+function ProductDetails({ control, formState }) {
+  const { errors } = formState || {};
+  const errorMessage = "This field is required";
 
-function ProductDetails({ register, formState }) {
+  const renderTextField = (name, label, type = "text") => (
+    <Controller
+      name={name}
+      control={control}
+      rules={{ required: errorMessage }}
+      render={({ field }) => (
+        <TextField
+          id={name}
+          label={label}
+          type={type}
+          variant="outlined"
+          fullWidth
+          value={field.value}
+          onChange={field.onChange}
+          error={!!errors?.[name]}
+          helperText={errors?.[name]?.message}
+          sx={{ backgroundColor: "var(--color-white-100)" }}
+        />
+      )}
+    />
+  );
+
+  const renderSelectField = (name, label, options) => (
+    <Controller
+      name={name}
+      control={control}
+      rules={{ required: errorMessage }}
+      render={({ field }) => (
+        <Select
+          {...field}
+          displayEmpty
+          fullWidth
+          variant="outlined"
+          error={!!errors?.[name]}
+          sx={{ backgroundColor: "var(--color-white-100)" }}
+          renderValue={(selected) => selected || label}
+        >
+          <MenuItem value="" disabled>
+            {label}
+          </MenuItem>
+          {options.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </Select>
+      )}
+    />
+  );
+
   return (
-    <FormWrapper>
-      <div>
-        <label>Name:</label>
-        <input type="text" {...register("name")} />
-      </div>
-      <div>
-        <label>Description:</label>
-        <textarea {...register("description")} />
-      </div>
-      <div>
-        <label>Cost per Kg:</label>
-        <input type="number" {...register("costPerKg")} />
-      </div>
-      <div>
-        <label>Product Class:</label>
-        <input type="text" {...register("productClass")} />
-      </div>
-      <div>
-        <label>Number of Products:</label>
-        <input type="number" {...register("numberOfProducts")} />
-      </div>
-    </FormWrapper>
+    <>
+      <FormRow>{renderTextField("productName", "Name of Product")}</FormRow>
+      <FormRow>
+        <Controller
+          name="description"
+          control={control}
+          rules={{ required: errorMessage }}
+          render={({ field }) => (
+            <TextArea
+              placeholder="Describe your Product here"
+              value={field.value}
+              onChange={field.onChange}
+            />
+          )}
+        />
+      </FormRow>
+      <FormRow>{renderTextField("costPerKg", "Cost per kg", "number")}</FormRow>
+      <FormRow>
+        {renderSelectField("productClass", "Select Product Class", [
+          { value: "class 1", label: "Harvest Goods" },
+          { value: "class 2", label: "Crop Categories" },
+          { value: "class 3", label: "Farm Produce" },
+          { value: "class 4", label: "Agric Items" },
+          { value: "class 5", label: "Field Harvest" },
+          { value: "class 6", label: "Farm Inventory" },
+          { value: "class 7", label: "Produce Listing" },
+          { value: "class 8", label: "Agricultural Products" },
+          { value: "class 9", label: "Farm Stock" },
+          { value: "class 10", label: "Crop Collection" },
+        ])}
+      </FormRow>
+      <FormRow>
+        {renderTextField("numberOfProducts", "Number of Products", "number")}
+      </FormRow>
+    </>
   );
 }
 

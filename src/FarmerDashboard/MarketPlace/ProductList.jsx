@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Button from "../../ui/Button";
+// import Button from "../../ui/Button";
 import { formatNumber } from "../../utils/formatNumber";
+import { useAddProductContext } from "../../context/addProductContext";
 
 const ProductListContainer = styled.div`
   grid-area: products;
@@ -40,17 +41,19 @@ const ProductPrice = styled.p`
   margin-bottom: 1rem;
 `;
 
-function ProductList({ products = [] }) {
+function ProductList() {
+  const { products } = useAddProductContext();
+
   return (
     <ProductListContainer>
       {products.map((product) => (
         <ProductCard key={product.id}>
-          <ProductName>{product.name}</ProductName>
+          <ProductName>{product.productName}</ProductName>
           <ProductDescription>{product.description}</ProductDescription>
           <ProductPrice>{formatNumber(product.costPerKg, true)}</ProductPrice>
-          <Button size="small" variation="primary">
+          {/* <Button size="small" variation="primary">
             View Details
-          </Button>
+          </Button> */}
         </ProductCard>
       ))}
     </ProductListContainer>

@@ -1,4 +1,4 @@
-import { useProducts } from "../../hooks/useProducts";
+import { AddProductProvider } from "../../context/addProductContext";
 import styled from "styled-components";
 import SidebarAndTopNavbar from "../DashboardHome/Bars";
 import MobileNavMenu from "../DashboardHome/NMContainer";
@@ -31,18 +31,17 @@ const MarketPlace = styled.div`
       "mobile-header";
   }
 `;
-
 function Dashboard() {
-  const { products, refreshProducts } = useProducts();
-
   return (
-    <MarketPlace>
-      <SidebarAndTopNavbar />
-      <MobileNavMenu />
-      <MobileHeader />
-      <UploadProduct onProductCreated={refreshProducts} />
-      <ProductList products={products} />
-    </MarketPlace>
+    <AddProductProvider>
+      <MarketPlace>
+        <SidebarAndTopNavbar />
+        <MobileNavMenu />
+        <MobileHeader />
+        <UploadProduct />
+        <ProductList />
+      </MarketPlace>
+    </AddProductProvider>
   );
 }
 
