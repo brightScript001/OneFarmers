@@ -7,7 +7,7 @@ import CardsContainer from "./CardContainer";
 
 const DashboardContainer = styled.div`
   display: grid;
-  /* min-height: 100vh; */
+  background: var(--color-grey-50);
 
   @media (min-width: 769px) {
     grid-template-columns: 12rem 1fr;

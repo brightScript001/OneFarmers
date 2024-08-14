@@ -21,7 +21,7 @@ const CardContainer = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   margin-bottom: 0.5rem;
 `;
 

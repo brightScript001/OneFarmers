@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import {
   HomeIcon,
@@ -26,7 +26,7 @@ const SidebarContainer = styled.div`
   z-index: 1001;
 `;
 
-const NavItem = styled(Link)`
+const NavItem = styled(NavLink)`
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -44,6 +44,11 @@ const NavItem = styled(Link)`
   &:hover {
     background-color: var(--color-grey-200);
   }
+
+  &.active img {
+    filter: invert(36%) sepia(63%) saturate(3411%) hue-rotate(86deg)
+      brightness(90%) contrast(97%);
+  }
 `;
 
 const Spacer = styled.div`
@@ -54,32 +59,32 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <Logo />
-      <NavItem to="/farmer-dashboard">
+      <NavItem exact to="/farmer-dashboard" activeClassName="active">
         <img src={HomeIcon} alt="Home" />
         Home
       </NavItem>
-      <NavItem to="/marketplace">
+      <NavItem to="/marketplace" activeClassName="active">
         <img src={MarketplaceIcon} alt="Marketplace" />
         Marketplace
       </NavItem>
-      <NavItem to="/inventory">
+      <NavItem to="/inventory" activeClassName="active">
         <img src={InventoryIcon} alt="Inventory" />
         Inventory
       </NavItem>
-      <NavItem to="/payment">
+      <NavItem to="/payment" activeClassName="active">
         <img src={PaymentIcon} alt="Payment" />
         Payment
       </NavItem>
-      <NavItem to="/support">
+      <NavItem to="/support" activeClassName="active">
         <img src={SupportIcon} alt="Support" />
         Support
       </NavItem>
       <Spacer />
-      <NavItem to="/profile">
+      <NavItem to="/profile" activeClassName="active">
         <img src={ProfileIcon} alt="Profile" />
         Profile
       </NavItem>
-      <NavItem to="/sign-out">
+      <NavItem to="/sign-out" activeClassName="active">
         <img src={SignOutIcon} alt="Sign Out" />
         Sign Out
       </NavItem>

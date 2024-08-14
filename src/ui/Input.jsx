@@ -5,7 +5,7 @@ const Input = styled.input`
   font-size: 1rem;
   border: 1px solid var(--color-grey-300);
   border-radius: var(--border-radius-sm);
-  background-color: var(--color-grey-50);
+  background-color: var(--color-white-100);
   color: var(--color-grey-700);
   outline: none;
 

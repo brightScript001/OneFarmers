@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: var(--font-size-lg);
   white-space: nowrap;
   text-align: center;
   color: var(--color-grey-800);
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: var(--font-size-md);
   }
 `;
 
 const Subtitle = styled.p`
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   color: var(--color-grey-700);
   margin: 1rem 0;
 `;

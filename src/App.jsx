@@ -13,6 +13,9 @@ const PasswordReset = lazy(() => import("./Auth/ResetPassword"));
 const FarmerDashboard = lazy(() =>
   import("./FarmerDashboard/DashboardHome/Dashboard")
 );
+const MarketPlace = lazy(() =>
+  import("./FarmerDashboard/MarketPlace/MarketPlace")
+);
 
 function App() {
   return (
@@ -28,6 +31,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<PasswordReset />} />
           <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
+          <Route path="/marketplace" element={<MarketPlace />} />
         </Routes>
       </Suspense>
     </Router>

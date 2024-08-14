@@ -7,7 +7,7 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--color-grey-0);
+  background-color: var(--color-white-100);
   position: fixed;
   top: 0;
   width: 100%;

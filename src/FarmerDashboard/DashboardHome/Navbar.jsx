@@ -11,7 +11,7 @@ const NavbarContainer = styled.header`
   top: 0;
   left: 13rem;
   width: calc(100% - 13rem);
-  background-color: var(--color-white);
+  background-color: var(--color-white-100);
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
