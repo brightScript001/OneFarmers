@@ -21,12 +21,10 @@ export function AddProductProvider({ children }) {
       console.error("Failed to fetch products", error);
     }
   };
-
   const handleCreateProductOpen = () => setShowCreateProduct(true);
   const handleCreateProductClose = () => setShowCreateProduct(false);
-
   return (
-    <AddProductContext.Provider
+    <AddProductProvider
       value={{
         products,
         showCreateProduct,
@@ -36,6 +34,6 @@ export function AddProductProvider({ children }) {
       }}
     >
       {children}
-    </AddProductContext.Provider>
+    </AddProductProvider>
   );
 }
