@@ -3,8 +3,7 @@ import { Controller } from "react-hook-form";
 import FormRow from "../../ui/FormRow";
 import TextArea from "../../ui/TextArea";
 
-function ProductDetails({ control, formState }) {
-  const { errors } = formState || {};
+function ProductDetails({ control, formState: { errors } }) {
   const errorMessage = "This field is required";
 
   const renderTextField = (name, label, type = "text") => (
@@ -14,13 +13,11 @@ function ProductDetails({ control, formState }) {
       rules={{ required: errorMessage }}
       render={({ field }) => (
         <TextField
-          id={name}
+          {...field}
           label={label}
           type={type}
           variant="outlined"
           fullWidth
-          value={field.value}
-          onChange={field.onChange}
           error={!!errors?.[name]}
           helperText={errors?.[name]?.message}
           sx={{ backgroundColor: "var(--color-white-100)" }}
@@ -66,11 +63,7 @@ function ProductDetails({ control, formState }) {
           control={control}
           rules={{ required: errorMessage }}
           render={({ field }) => (
-            <TextArea
-              placeholder="Describe your Product here"
-              value={field.value}
-              onChange={field.onChange}
-            />
+            <TextArea placeholder="Describe your Product here" {...field} />
           )}
         />
       </FormRow>

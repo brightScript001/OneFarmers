@@ -17,7 +17,7 @@ const StyledTitle = styled(Title)`
 `;
 
 function CreateProduct({ title, onClose }) {
-  const { register, handleSubmit, control, reset, formState } = useForm();
+  const { handleSubmit, control, reset, formState } = useForm();
 
   const { refreshProducts } = useAddProductContext();
 
@@ -42,6 +42,8 @@ function CreateProduct({ title, onClose }) {
 
       if (refreshProducts) refreshProducts();
       toast.success("Product created successfully!");
+
+      // Reset the form fields after a successful product creation
       reset();
     } catch (error) {
       toast.error(error.message);
@@ -52,11 +54,7 @@ function CreateProduct({ title, onClose }) {
     <Wrapper>
       <StyledTitle>{title}</StyledTitle>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <ProductDetails
-          register={register}
-          control={control}
-          formState={formState} // Pass formState
-        />
+        <ProductDetails control={control} formState={formState} />
         <ActionButtons onClose={onClose} handleDelete={handleDelete} />
       </Form>
     </Wrapper>
