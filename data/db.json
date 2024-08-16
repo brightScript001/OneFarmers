@@ -47,14 +47,6 @@
       "costPerKg": 0.8,
       "productClass": "Class 1",
       "numberOfProducts": 50
-    },
-    {
-      "id": "f516",
-      "productName": "Heather Mcgee",
-      "description": "Quisquam commodi ita",
-      "costPerKg": "63",
-      "productClass": "class 3",
-      "numberOfProducts": "77"
     }
   ]
 }

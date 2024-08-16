@@ -13,6 +13,7 @@ const DashboardContainer = styled.div`
     grid-template-columns: 12rem 1fr;
     grid-template-rows: 4rem 1fr auto;
     margin-left: 4rem;
+    gap: 1rem;
     grid-template-areas:
       "sidebar navbar"
       "sidebar content"

@@ -5,7 +5,7 @@ import { useAddProductContext } from "../../context/addProductContext";
 import CreateProduct from "./CreateProduct";
 
 const Wrapper = styled.div`
-  grid-area: content;
+  grid-area: upload-product;
   margin-top: 4rem;
   display: flex;
   justify-content: space-between;

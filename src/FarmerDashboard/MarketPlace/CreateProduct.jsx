@@ -18,12 +18,13 @@ const StyledTitle = styled(Title)`
 
 function CreateProduct({ title, onClose }) {
   const { handleSubmit, control, reset, formState } = useForm();
-
-  const { refreshProducts } = useAddProductContext();
+  const { refreshProducts, setProductCreated, resetProductCreated } =
+    useAddProductContext();
 
   const handleDelete = () => {
     reset();
     toast.success("Product creation reset.");
+    resetProductCreated();
   };
 
   const onSubmit = async (data) => {
@@ -40,13 +41,18 @@ function CreateProduct({ title, onClose }) {
         throw new Error("Failed to create product");
       }
 
+      const createdProduct = await response.json();
+      const productName = createdProduct.productName || data.productName;
+
       if (refreshProducts) refreshProducts();
+
       toast.success("Product created successfully!");
 
-      // Reset the form fields after a successful product creation
+      setProductCreated(productName);
       reset();
     } catch (error) {
       toast.error(error.message);
+      setProductCreated("");
     }
   };
 

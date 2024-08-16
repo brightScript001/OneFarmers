@@ -14,10 +14,10 @@ const MarketPlace = styled.div`
     grid-template-columns: 12rem 1fr;
     grid-template-rows: 4rem 1fr auto;
     margin-left: 4rem;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-areas:
       "sidebar navbar"
-      "sidebar content"
+      "sidebar upload-product"
       "sidebar create-product"
       "sidebar products";
   }
@@ -28,7 +28,10 @@ const MarketPlace = styled.div`
     grid-template-rows: 4rem auto 1fr;
     grid-template-areas:
       "mobile-nav"
-      "mobile-header";
+      "mobile-header"
+      "upload-product"
+      "create-product"
+      "products";
   }
 `;
 function Dashboard() {
