@@ -1,9 +1,14 @@
+import React from "react";
 import { BackButtonIcon } from "./Icons";
 import Button from "./ButtonIcon";
 
-const BackButton: React.FC = () => {
+interface BackButtonProps {
+  onClick: () => void;
+}
+
+const BackButton: React.FC<BackButtonProps> = ({ onClick }) => {
   return (
-    <Button>
+    <Button onClick={onClick}>
       <img src={BackButtonIcon} alt="one step back" />
     </Button>
   );

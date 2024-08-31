@@ -6,7 +6,7 @@ import SearchBar from "../../ui/SearchBar";
 import UserAvatar from "../../ui/UserAvatar";
 import Username from "../../ui/Username";
 import userAvatarSrc from "/Assets/images/avatar.png";
-// import { useUserContext } from "../../context/addProductContext";
+import { usePreviousRoute } from "../../hooks/usePreviousRoute";
 
 const NavbarContainer = styled.header`
   position: fixed;
@@ -21,7 +21,7 @@ const NavbarContainer = styled.header`
   z-index: 1000;
 
   @media (max-width: 768px) {
-    display: none; // Uncomment if you need to hide navbar on smaller screens
+    display: none;
   }
 `;
 
@@ -37,12 +37,13 @@ const NavbarSection = styled.div`
 
 function Navbar() {
   // const { user } = useUserContext();
+  const { handleBackClick, previousPageName } = usePreviousRoute();
 
   return (
     <NavbarContainer>
       <NavbarSection>
-        <BackButton />
-        <ButtonText>Home</ButtonText>
+        <BackButton onClick={handleBackClick} />
+        <ButtonText onClick={handleBackClick}>{previousPageName}</ButtonText>
       </NavbarSection>
       <NavbarSection>
         <SearchBar />
