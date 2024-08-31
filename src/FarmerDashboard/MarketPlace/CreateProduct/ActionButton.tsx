@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
-import ButtonGroup from "../../ui/ButtonGroup";
-import UiButton from "../../ui/Button";
-import ModalComponent from "../../ui/modal";
+import ButtonGroup from "../../../ui/ButtonGroup";
+import UiButton from "../../../ui/Button";
+import ModalComponent from "../../../ui/modal";
 import { useEffect, useState } from "react";
-import { useAddProductContext } from "../../context/addProductContext";
+import { useAddProductContext } from "../../../context/addProductContext";
 import checkImage from "/Assets/images/checkImage.png";
 import styled from "styled-components";
-import Heading from "../../ui/Heading";
+import Heading from "../../../ui/Heading";
 
 // Define the types for the props
 interface ActionButtonsProps {
@@ -102,7 +102,7 @@ function ActionButtons({ onClose, handleDelete }: ActionButtonsProps) {
             },
           }}
         >
-          Cancel
+          Close
         </Button>
         <Button
           variant="contained"

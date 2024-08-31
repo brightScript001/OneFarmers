@@ -19,6 +19,13 @@ const FarmerDashboardHome = lazy(
 const MarketPlace = lazy(
   () => import("./FarmerDashboard/MarketPlace/MarketPlace")
 );
+const CreateProductWrapper = lazy(
+  () =>
+    import("./FarmerDashboard/MarketPlace/CreateProduct/CreateProductWrapper")
+);
+const MarketPlaceIndex = lazy(
+  () => import("./FarmerDashboard/MarketPlace/CreateProduct/MarketPlaceIndex")
+);
 
 const App = () => {
   return (
@@ -35,7 +42,10 @@ const App = () => {
           <Route path="/reset-password" element={<PasswordReset />} />
           <Route path="/farmer-dashboard" element={<FarmerDashboard />}>
             <Route path="home" element={<FarmerDashboardHome />} />
-            <Route path="marketplace" element={<MarketPlace />} />
+            <Route path="marketplace" element={<MarketPlace />}>
+              <Route index element={<MarketPlaceIndex />} />
+              <Route path="create-product" element={<CreateProductWrapper />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

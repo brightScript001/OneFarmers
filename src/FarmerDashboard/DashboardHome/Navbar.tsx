@@ -6,7 +6,7 @@ import SearchBar from "../../ui/SearchBar";
 import UserAvatar from "../../ui/UserAvatar";
 import Username from "../../ui/Username";
 import userAvatarSrc from "/Assets/images/avatar.png";
-import { usePreviousRoute } from "../../hooks/usePreviousRoute";
+import { useNavigationHistory } from "../../hooks/usePreviousRoute";
 
 const NavbarContainer = styled.header`
   position: fixed;
@@ -34,16 +34,20 @@ const NavbarSection = styled.div`
     margin-right: 0;
   }
 `;
+const Span = styled.span`
+  font-size: var(--font-size-md);
+`;
 
 function Navbar() {
-  // const { user } = useUserContext();
-  const { handleBackClick, previousPageName } = usePreviousRoute();
+  const { handleBackClick, previousPageName, currentPageName } =
+    useNavigationHistory();
 
   return (
     <NavbarContainer>
       <NavbarSection>
         <BackButton onClick={handleBackClick} />
         <ButtonText onClick={handleBackClick}>{previousPageName}</ButtonText>
+        {currentPageName && <Span> &gt; {currentPageName}</Span>}
       </NavbarSection>
       <NavbarSection>
         <SearchBar />
@@ -52,9 +56,7 @@ function Navbar() {
         <img src={BellIcon} alt="BellIcon" />
       </NavbarSection>
       <NavbarSection>
-        {/* user?.avatar || */}
         <UserAvatar src={userAvatarSrc} alt="User Avatar" />
-        {/* user?.name || */}
         <Username name={"Idoma Prince"} />
       </NavbarSection>
     </NavbarContainer>

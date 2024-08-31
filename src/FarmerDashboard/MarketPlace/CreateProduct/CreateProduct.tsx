@@ -1,11 +1,11 @@
 import { useForm, SubmitHandler, Control, FormState } from "react-hook-form";
-import { Title } from "../../ui/Title";
-import Form from "../../ui/Form";
+import { Title } from "../../../ui/Title";
+import Form from "../../../ui/Form";
 import ActionButtons from "./ActionButton";
 import ProductDetails from "./ProductDetails";
 import toast from "react-hot-toast";
 import styled from "styled-components";
-import { useAddProductContext } from "../../context/addProductContext";
+import { useAddProductContext } from "../../../context/addProductContext";
 
 interface FormData {
   productName: string;

@@ -12,7 +12,6 @@ interface Product {
   costPerKg: number;
 }
 
-// Styled Components
 const ProductListWrapper = styled.div`
   margin-top: 20px;
 `;

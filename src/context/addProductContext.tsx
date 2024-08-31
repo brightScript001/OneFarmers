@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useContext,
   useState,
@@ -17,11 +17,8 @@ interface Product {
 
 interface AddProductContextType {
   products: Product[];
-  showCreateProduct: boolean;
   isProductCreated: boolean;
   newProductName: string;
-  handleCreateProductOpen: () => void;
-  handleCreateProductClose: () => void;
   refreshProducts: () => Promise<void>;
   setIsProductCreated: Dispatch<SetStateAction<boolean>>;
   setProductCreated: (name: string) => void;
@@ -44,12 +41,8 @@ export const useAddProductContext = () => {
 
 export function AddProductProvider({ children }: { children: ReactNode }) {
   const { products, refreshProducts } = useProducts();
-  const [showCreateProduct, setShowCreateProduct] = useState<boolean>(false);
   const [isProductCreated, setIsProductCreated] = useState<boolean>(false);
   const [newProductName, setNewProductName] = useState<string>("");
-
-  const handleCreateProductOpen = () => setShowCreateProduct(true);
-  const handleCreateProductClose = () => setShowCreateProduct(false);
 
   const setProductCreated = (name: string) => {
     setIsProductCreated(true);
@@ -65,11 +58,8 @@ export function AddProductProvider({ children }: { children: ReactNode }) {
     <AddProductContext.Provider
       value={{
         products,
-        showCreateProduct,
         isProductCreated,
         newProductName,
-        handleCreateProductOpen,
-        handleCreateProductClose,
         refreshProducts,
         setIsProductCreated,
         setProductCreated,
