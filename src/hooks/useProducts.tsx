@@ -14,7 +14,7 @@ export function useProducts() {
 
   const fetchProducts = async () => {
     setLoading(true);
-    setError(null); // Reset error before fetching
+    setError(null);
 
     try {
       const response = await fetch("http://localhost:5000/products");

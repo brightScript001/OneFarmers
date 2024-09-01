@@ -1,0 +1,304 @@
+{
+  "orders": [
+    {
+      "customerName": "Adebola Ojo",
+      "orderId": "ORD-001",
+      "orderDetails": [
+        {
+          "item": "Rice",
+          "quantityInKg": 10,
+          "pricePerKg": 4.5,
+          "totalPrice": 45.0
+        },
+        {
+          "item": "Wheat",
+          "quantityInKg": 7,
+          "pricePerKg": 3.8,
+          "totalPrice": 26.6
+        },
+        {
+          "item": "Corn",
+          "quantityInKg": 12,
+          "pricePerKg": 2.9,
+          "totalPrice": 34.8
+        },
+        {
+          "item": "Soybeans",
+          "quantityInKg": 9,
+          "pricePerKg": 5.2,
+          "totalPrice": 46.8
+        },
+        {
+          "item": "Barley",
+          "quantityInKg": 8,
+          "pricePerKg": 3.7,
+          "totalPrice": 29.6
+        },
+        {
+          "item": "Oats",
+          "quantityInKg": 15,
+          "pricePerKg": 3.5,
+          "totalPrice": 52.5
+        },
+        {
+          "item": "Sorghum",
+          "quantityInKg": 5,
+          "pricePerKg": 4.0,
+          "totalPrice": 20.0
+        }
+      ],
+      "shippingAddress": "123 Main St, Lagos, Nigeria",
+      "dateOfOrder": "2024-08-28",
+      "orderStatus": "pending"
+    },
+    {
+      "customerName": "Chinwe Okafor",
+      "orderId": "ORD-002",
+      "orderDetails": [
+        {
+          "item": "Cassava",
+          "quantityInKg": 20,
+          "pricePerKg": 2.5,
+          "totalPrice": 50.0
+        },
+        {
+          "item": "Yam",
+          "quantityInKg": 10,
+          "pricePerKg": 3.0,
+          "totalPrice": 30.0
+        },
+        {
+          "item": "Millet",
+          "quantityInKg": 8,
+          "pricePerKg": 2.7,
+          "totalPrice": 21.6
+        },
+        {
+          "item": "Groundnuts",
+          "quantityInKg": 12,
+          "pricePerKg": 4.2,
+          "totalPrice": 50.4
+        },
+        {
+          "item": "Sugarcane",
+          "quantityInKg": 7,
+          "pricePerKg": 3.3,
+          "totalPrice": 23.1
+        },
+        {
+          "item": "Palm Oil",
+          "quantityInKg": 5,
+          "pricePerKg": 5.0,
+          "totalPrice": 25.0
+        },
+        {
+          "item": "Maize",
+          "quantityInKg": 15,
+          "pricePerKg": 3.6,
+          "totalPrice": 54.0
+        }
+      ],
+      "shippingAddress": "456 Victoria Island, Lagos, Nigeria",
+      "dateOfOrder": "2024-08-27",
+      "orderStatus": "pending"
+    },
+    {
+      "customerName": "Bola Adeyemi",
+      "orderId": "ORD-003",
+      "orderDetails": [
+        {
+          "item": "Plantains",
+          "quantityInKg": 9,
+          "pricePerKg": 3.5,
+          "totalPrice": 31.5
+        },
+        {
+          "item": "Cocoa",
+          "quantityInKg": 12,
+          "pricePerKg": 6.5,
+          "totalPrice": 78.0
+        },
+        {
+          "item": "Groundnuts",
+          "quantityInKg": 10,
+          "pricePerKg": 4.0,
+          "totalPrice": 40.0
+        },
+        {
+          "item": "Cassava",
+          "quantityInKg": 7,
+          "pricePerKg": 2.8,
+          "totalPrice": 19.6
+        },
+        {
+          "item": "Yam",
+          "quantityInKg": 8,
+          "pricePerKg": 3.2,
+          "totalPrice": 25.6
+        },
+        {
+          "item": "Palm Oil",
+          "quantityInKg": 5,
+          "pricePerKg": 5.0,
+          "totalPrice": 25.0
+        }
+      ],
+      "shippingAddress": "789 Allen Avenue, Ikeja, Nigeria",
+      "dateOfOrder": "2024-08-26",
+      "orderStatus": "pending"
+    },
+    {
+      "customerName": "Ngozi Eze",
+      "orderId": "ORD-004",
+      "orderDetails": [
+        {
+          "item": "Millet",
+          "quantityInKg": 8,
+          "pricePerKg": 2.7,
+          "totalPrice": 21.6
+        },
+        {
+          "item": "Sorghum",
+          "quantityInKg": 15,
+          "pricePerKg": 3.4,
+          "totalPrice": 51.0
+        },
+        {
+          "item": "Maize",
+          "quantityInKg": 7,
+          "pricePerKg": 3.6,
+          "totalPrice": 25.2
+        },
+        {
+          "item": "Rice",
+          "quantityInKg": 10,
+          "pricePerKg": 4.5,
+          "totalPrice": 45.0
+        },
+        {
+          "item": "Wheat",
+          "quantityInKg": 12,
+          "pricePerKg": 3.8,
+          "totalPrice": 45.6
+        },
+        {
+          "item": "Yam",
+          "quantityInKg": 5,
+          "pricePerKg": 3.0,
+          "totalPrice": 15.0
+        },
+        {
+          "item": "Cassava",
+          "quantityInKg": 9,
+          "pricePerKg": 2.8,
+          "totalPrice": 25.2
+        }
+      ],
+      "shippingAddress": "15 Aba Road, Port Harcourt, Nigeria",
+      "dateOfOrder": "2024-08-25",
+      "orderStatus": "pending"
+    },
+    {
+      "customerName": "Tunde Bakare",
+      "orderId": "ORD-005",
+      "orderDetails": [
+        {
+          "item": "Plantains",
+          "quantityInKg": 11,
+          "pricePerKg": 3.5,
+          "totalPrice": 38.5
+        },
+        {
+          "item": "Cocoa",
+          "quantityInKg": 14,
+          "pricePerKg": 6.5,
+          "totalPrice": 91.0
+        },
+        {
+          "item": "Groundnuts",
+          "quantityInKg": 10,
+          "pricePerKg": 4.0,
+          "totalPrice": 40.0
+        },
+        {
+          "item": "Cassava",
+          "quantityInKg": 12,
+          "pricePerKg": 2.8,
+          "totalPrice": 33.6
+        },
+        {
+          "item": "Yam",
+          "quantityInKg": 9,
+          "pricePerKg": 3.2,
+          "totalPrice": 28.8
+        },
+        {
+          "item": "Palm Oil",
+          "quantityInKg": 7,
+          "pricePerKg": 5.0,
+          "totalPrice": 35.0
+        },
+        {
+          "item": "Rice",
+          "quantityInKg": 8,
+          "pricePerKg": 4.5,
+          "totalPrice": 36.0
+        }
+      ],
+      "shippingAddress": "22 Ikorodu Road, Lagos, Nigeria",
+      "dateOfOrder": "2024-08-24",
+      "orderStatus": "pending"
+    },
+    {
+      "customerName": "Funmi Adebayo",
+      "orderId": "ORD-006",
+      "orderDetails": [
+        {
+          "item": "Rice",
+          "quantityInKg": 10,
+          "pricePerKg": 4.5,
+          "totalPrice": 45.0
+        },
+        {
+          "item": "Wheat",
+          "quantityInKg": 7,
+          "pricePerKg": 3.8,
+          "totalPrice": 26.6
+        },
+        {
+          "item": "Corn",
+          "quantityInKg": 12,
+          "pricePerKg": 2.9,
+          "totalPrice": 34.8
+        },
+        {
+          "item": "Soybeans",
+          "quantityInKg": 9,
+          "pricePerKg": 5.2,
+          "totalPrice": 46.8
+        },
+        {
+          "item": "Barley",
+          "quantityInKg": 8,
+          "pricePerKg": 3.7,
+          "totalPrice": 29.6
+        },
+        {
+          "item": "Oats",
+          "quantityInKg": 15,
+          "pricePerKg": 3.5,
+          "totalPrice": 52.5
+        },
+        {
+          "item": "Sorghum",
+          "quantityInKg": 5,
+          "pricePerKg": 4.0,
+          "totalPrice": 20.0
+        }
+      ],
+      "shippingAddress": "123 Main St, Lagos, Nigeria",
+      "dateOfOrder": "2024-08-28",
+      "orderStatus": "pending"
+    }
+  ]
+}
