@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { formatNumber } from "../../../../utils/formatNumber";
-import { useAddProductContext } from "../../../../context/addProductContext";
-import Heading from "../../../../ui/Heading";
+import { formatNumber } from "../../../utils/formatNumber";
+import { useAddProductContext } from "../../../context/addProductContext";
+import Heading from "../../../ui/Heading";
 
 interface Product {
   id: number;

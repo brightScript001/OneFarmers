@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Button from "../../../../ui/Button";
-import { Title } from "../../../../ui/Title";
-import { useAddProductContext } from "../../../../context/addProductContext";
+import Button from "../../../ui/Button";
+import { Title } from "../../../ui/Title";
+import { useAddProductContext } from "../../../context/addProductContext";
 import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`

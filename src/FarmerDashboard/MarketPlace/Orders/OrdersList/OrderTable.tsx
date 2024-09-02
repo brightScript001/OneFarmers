@@ -27,6 +27,6 @@ export const OrderTable: React.FC<OrderTableProps> = ({ rows }) => (
     }}
     // checkboxSelection
     autoHeight
-    disableSelectionOnClick
+    // disableSelectionOnClick
   />
 );

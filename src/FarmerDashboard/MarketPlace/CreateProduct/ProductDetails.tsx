@@ -1,7 +1,7 @@
 import { TextField, Select, MenuItem } from "@mui/material";
 import { Controller, Control, FieldErrors } from "react-hook-form";
-import FormRow from "../../../../ui/FormRow";
-import TextArea from "../../../../ui/TextArea";
+import FormRow from "../../../ui/FormRow";
+import TextArea from "../../../ui/TextArea";
 
 interface ProductDetailsFormData {
   productName: string;

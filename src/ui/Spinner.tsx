@@ -1,13 +1,11 @@
 import styled, { keyframes } from "styled-components";
 
-// Keyframes for rotating animation
 const rotate = keyframes`
   to {
     transform: rotate(1turn);
   }
 `;
 
-// Styled component for the spinner
 const Spinner = styled.div<{ size?: string; color?: string }>`
   width: ${({ size }) => size || "6.4rem"};
   aspect-ratio: 1;

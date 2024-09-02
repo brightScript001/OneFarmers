@@ -7,8 +7,9 @@ import Login from "./Auth/LogIn";
 import VerifyEmail from "./Auth/VerifyEmail";
 import ForgotPassword from "./Auth/ForgotPassword";
 import PasswordReset from "./Auth/ResetPassword";
-import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/Orders/CreateProduct/MarketPlaceIndex";
+import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/MarketPlaceIndex";
 import { Order } from "./FarmerDashboard/MarketPlace/Orders/Order";
+import OrderSummary from "./FarmerDashboard/MarketPlace/Orders/OrderDetails/OrderSummary";
 
 const RegisterSeller = lazy(() => import("./Auth/SignUp"));
 const RegisterBuyer = lazy(() => import("./Auth/SignUp"));
@@ -23,9 +24,7 @@ const MarketPlace = lazy(
 );
 const CreateProductWrapper = lazy(
   () =>
-    import(
-      "./FarmerDashboard/MarketPlace/Orders/CreateProduct/CreateProductWrapper"
-    )
+    import("./FarmerDashboard/MarketPlace/CreateProduct/CreateProductWrapper")
 );
 
 const App = () => {
@@ -46,7 +45,8 @@ const App = () => {
             <Route path="marketplace" element={<MarketPlace />}>
               <Route index element={<MarketPlaceIndex />} />
               <Route path="create-product" element={<CreateProductWrapper />} />
-              <Route path="orders" element={<Order />} />
+              <Route path="orders/:status" element={<Order />} />
+              <Route path="order-summary/:orderId" element={<OrderSummary />} />
             </Route>
           </Route>
         </Routes>

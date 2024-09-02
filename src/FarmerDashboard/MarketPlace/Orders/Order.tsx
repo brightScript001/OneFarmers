@@ -2,8 +2,10 @@ import styled from "styled-components";
 import Button from "../../../ui/Button";
 import ButtonGroup from "../../../ui/ButtonGroup";
 import Heading from "../../../ui/Heading";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { OrderList } from "./OrdersList/OrderList";
+import SpinnerComponent from "../../../ui/Spinner"; // Import your spinner component
 
 const OrderContainer = styled.div`
   padding: 2rem 0;
@@ -19,40 +21,60 @@ const List = styled.div`
   margin-top: 20px;
 `;
 
+type RouteStatus = "pending-orders" | "settled-orders";
+
+const statusMapping: { [key in RouteStatus]: "pending" | "settled" } = {
+  "pending-orders": "pending",
+  "settled-orders": "settled",
+};
+
 export const Order = () => {
-  const [activeButton, setActiveButton] = useState("pending");
+  const { status } = useParams<{ status: RouteStatus }>();
+  const [activeButton, setActiveButton] =
+    useState<RouteStatus>("pending-orders");
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  const handleButtonClick = (buttonType: string) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (status! in statusMapping) {
+        setActiveButton(status as RouteStatus);
+        setLoading(false);
+      } else {
+        navigate("/farmer-dashboard/marketplace/orders/pending-orders");
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [status, navigate]);
+
+  const handleButtonClick = (buttonType: RouteStatus) => {
     setActiveButton(buttonType);
-
-    if (buttonType === "pending") {
-      console.log("Pending Orders Clicked");
-    } else if (buttonType === "settled") {
-      console.log("Settled Orders Clicked");
-    }
+    navigate(`/farmer-dashboard/marketplace/orders/${buttonType}`);
   };
 
-  const isActive = (buttonType: string) => activeButton === buttonType;
+  const isActive = (buttonType: RouteStatus) => activeButton === buttonType;
+
+  if (loading) {
+    return <SpinnerComponent />;
+  }
 
   return (
     <OrderContainer>
       <Heading as="h1">Orders</Heading>
       <StyledButtonGroup>
-        {["pending", "settled"].map((type) => (
+        {["pending-orders", "settled-orders"].map((type) => (
           <Button
             key={type}
-            variation={isActive(type) ? "primary" : "secondary"}
-            onClick={() => handleButtonClick(type)}
+            variation={isActive(type as RouteStatus) ? "primary" : "secondary"}
+            onClick={() => handleButtonClick(type as RouteStatus)}
           >
-            {type === "pending" ? "Pending Orders" : "Settled Orders"}
+            {type === "pending-orders" ? "Pending Orders" : "Settled Orders"}
           </Button>
         ))}
       </StyledButtonGroup>
       <List>
-        {activeButton === "pending" && <OrderList status="pending" />}
-      </List>
-      <List>
-        {activeButton === "settled" && <OrderList status="settled" />}
+        <OrderList status={statusMapping[activeButton]} />
       </List>
     </OrderContainer>
   );

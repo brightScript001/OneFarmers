@@ -8,6 +8,7 @@ interface Card {
   isCurrency?: boolean;
   navigateTo: string;
 }
+
 export const getCardList = (): Card[] => {
   const { orders } = useOrderContext();
 
@@ -36,13 +37,13 @@ export const getCardList = (): Card[] => {
       title: "Pending Orders",
       count: pendingOrdersCount,
       description: "28% increase from last month",
-      navigateTo: "/farmer-dashboard/marketplace/orders",
+      navigateTo: "/farmer-dashboard/marketplace/orders/pending-orders",
     },
     {
       title: "Settled Orders",
       count: settledOrdersCount,
       description: "82% customer satisfaction",
-      navigateTo: "/farmer-dashboard/marketplace/orders",
+      navigateTo: "/farmer-dashboard/marketplace/orders/settled-orders",
     },
     {
       title: "Your Revenue",
