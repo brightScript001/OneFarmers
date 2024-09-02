@@ -45,7 +45,6 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children }) => {
   );
 };
 
-// Custom hook to use the order context
 export const useOrderContext = (): OrderContextType => {
   const context = useContext(OrderContext);
   if (context === undefined) {

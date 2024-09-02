@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Card from "../../ui/TextCard";
-import { cardList } from "./CardList";
+import { getCardList } from "./CardList";
+import { useNavigate } from "react-router-dom";
+
 const CardsWrapper = styled.div`
   grid-area: marketplace-cards;
   width: 100%;
@@ -34,6 +36,12 @@ const CardsGrid = styled.div`
 `;
 
 function CardsContainer() {
+  const cardList = getCardList();
+  const navigate = useNavigate();
+
+  const handleCardClick = (navigateTo: string) => {
+    navigate(navigateTo);
+  };
   return (
     <CardsWrapper>
       <CardsGrid>
@@ -44,6 +52,7 @@ function CardsContainer() {
             count={data.count}
             description={data.description}
             isCurrency={data.isCurrency}
+            onClick={() => handleCardClick(data.navigateTo)}
           />
         ))}
       </CardsGrid>

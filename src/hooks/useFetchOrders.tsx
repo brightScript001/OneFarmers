@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface orderDetail {
+interface OrderDetail {
   item: string;
   quantityInKg: number;
   pricePerKg: number;
@@ -10,7 +10,7 @@ interface orderDetail {
 interface Order {
   customerName: string;
   orderId: string;
-  orderDetails: orderDetail[];
+  orderDetails: OrderDetail[];
   shippingAddress: string;
   dateOfOrder: string;
   orderStatus:
@@ -22,35 +22,38 @@ interface Order {
     | "settled";
 }
 
-interface useFetchOrders {
+interface UseFetchOrders {
   orders: Order[];
   loading: boolean;
   error: string | null;
 }
 
 export const useFetchOrders = (
-  apiUrl: string = "http://localhost:6000/orders"
-): useFetchOrders => {
+  apiUrl: string = "http://localhost:3000/orders"
+): UseFetchOrders => {
   const [orders, setOrders] = useState<Order[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        setLoading(true);
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data: Order[] = await response.json();
         setOrders(data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        setError((err as Error).message);
       } finally {
         setLoading(false);
       }
     };
+
     fetchOrders();
   }, [apiUrl]);
+
   return { orders, loading, error };
 };

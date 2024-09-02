@@ -35,7 +35,7 @@ const DashboardContainer = styled.div`
 const ContentContainer = styled.div`
   grid-area: content;
   /* padding: 1rem; */
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
 `;
 
 function Dashboard() {

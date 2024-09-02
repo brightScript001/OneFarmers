@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { formatNumber } from "../../utils/formatNumber";
-import { useAddProductContext } from "../../context/addProductContext";
-import Heading from "../../ui/Heading";
+import { formatNumber } from "../../../../utils/formatNumber";
+import { useAddProductContext } from "../../../../context/addProductContext";
+import Heading from "../../../../ui/Heading";
 
-// Define the type for a single product
 interface Product {
   id: number;
   name: string;
@@ -56,7 +55,6 @@ const ProductPrice = styled.h3`
   margin-bottom: 1rem;
 `;
 
-// ProductList Component
 const ProductList: React.FC = () => {
   const { products } = useAddProductContext();
 
@@ -69,9 +67,6 @@ const ProductList: React.FC = () => {
             <ProductName>{product.productName}</ProductName>
             <ProductDescription>{product.description}</ProductDescription>
             <ProductPrice>{formatNumber(product.costPerKg, true)}</ProductPrice>
-            {/* <Button size="small" variation="primary">
-              View Details
-            </Button> */}
           </ProductCard>
         ))}
       </ProductListContainer>

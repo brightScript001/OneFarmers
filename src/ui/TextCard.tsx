@@ -6,6 +6,7 @@ interface CardProps {
   count: number;
   description: string;
   isCurrency?: boolean;
+  onClick: () => void;
 }
 
 const CardContainer = styled.div`
@@ -47,9 +48,10 @@ const Card: React.FC<CardProps> = ({
   count,
   description,
   isCurrency,
+  onClick,
 }) => {
   return (
-    <CardContainer>
+    <CardContainer onClick={onClick}>
       <Title>{title}</Title>
       <Count>{formatNumber(count, isCurrency)}</Count>
       <Description>{description}</Description>

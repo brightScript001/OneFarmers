@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import UploadProduct from "./UploadProduct";
-import ProductList from "../ProductList";
-import CardsContainer from "../../DashboardHome/CardContainer";
+import ProductList from "./ProductList";
+import CardsContainer from "../../../DashboardHome/CardContainer";
 
 const MarketPlace = styled.div`
   background: var(--color-grey-50);
