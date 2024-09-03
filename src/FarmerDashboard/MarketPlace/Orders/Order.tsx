@@ -4,7 +4,7 @@ import ButtonGroup from "../../../ui/ButtonGroup";
 import Heading from "../../../ui/Heading";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { OrderList } from "./OrdersList/OrderList";
+import { OrderList } from "./OrdersList/List";
 import SpinnerComponent from "../../../ui/Spinner"; // Import your spinner component
 
 const OrderContainer = styled.div`

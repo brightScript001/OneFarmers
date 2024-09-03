@@ -10,9 +10,15 @@ const ButtonContainer = styled.div`
 const OrderActions: React.FC = () => {
   return (
     <ButtonContainer>
-      <Button variation="primary">Approve Order</Button>
-      <Button variation="secondary">Message Customer</Button>
-      <Button variation="danger">Dispute Order</Button>
+      <Button size="large" variation="primary">
+        Approve Order
+      </Button>
+      <Button size="large" variation="secondary">
+        Message Customer
+      </Button>
+      <Button size="large" variation="danger">
+        Dispute Order
+      </Button>
     </ButtonContainer>
   );
 };

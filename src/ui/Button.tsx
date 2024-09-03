@@ -7,21 +7,23 @@ interface ButtonProps {
 
 const sizes = {
   small: css`
-    font-size: 1rem;
+    font-size: var(--font-size-md);
     padding: 0.4rem 0.8rem;
     font-weight: 100;
     text-align: center;
   `,
   medium: css`
-    font-size: 0.875rem;
-    padding: 0.7rem 1.4rem;
+    font-size: var(--font-size-md);
+    padding: 0.4rem 1.4rem;
     font-weight: 300;
+    min-width: 12.5rem;
     white-space: nowrap;
   `,
   large: css`
-    font-size: 1.2rem;
-    padding: 1.2rem 2.4rem;
+    font-size: var(--font-size-md);
+    padding: 0.4rem 2.4rem;
     font-weight: 500;
+    min-width: 18.75rem;
     white-space: nowrap;
   `,
 };

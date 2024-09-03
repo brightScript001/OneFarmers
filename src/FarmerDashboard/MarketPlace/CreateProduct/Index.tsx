@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import UploadProduct from "./UploadProduct";
-import ProductList from "./ProductList";
+import UploadProduct from "./Upload";
+import ProductList from "./List";
 import CardsContainer from "../../DashboardHome/CardContainer";
 
 const MarketPlace = styled.div`

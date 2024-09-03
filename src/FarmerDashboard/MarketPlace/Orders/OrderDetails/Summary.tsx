@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import OrderContainer from "./OrderContainer";
-import OrderText from "./OrderText";
-import OrderActions from "./OrderActions";
+import OrderContainer from "./SContainer";
+import OrderText from "./Text";
+import OrderActions from "./Buttons";
 import { useOrderContext } from "../../../../context/orderProvider";
 
 const OrderSummary: React.FC = () => {

@@ -7,9 +7,9 @@ import Login from "./Auth/LogIn";
 import VerifyEmail from "./Auth/VerifyEmail";
 import ForgotPassword from "./Auth/ForgotPassword";
 import PasswordReset from "./Auth/ResetPassword";
-import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/MarketPlaceIndex";
+import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/Index";
 import { Order } from "./FarmerDashboard/MarketPlace/Orders/Order";
-import OrderSummary from "./FarmerDashboard/MarketPlace/Orders/OrderDetails/OrderSummary";
+import OrderSummary from "./FarmerDashboard/MarketPlace/Orders/OrderDetails/Summary";
 
 const RegisterSeller = lazy(() => import("./Auth/SignUp"));
 const RegisterBuyer = lazy(() => import("./Auth/SignUp"));
@@ -23,8 +23,7 @@ const MarketPlace = lazy(
   () => import("./FarmerDashboard/MarketPlace/MarketPlace")
 );
 const CreateProductWrapper = lazy(
-  () =>
-    import("./FarmerDashboard/MarketPlace/CreateProduct/CreateProductWrapper")
+  () => import("./FarmerDashboard/MarketPlace/CreateProduct/Wrapper")
 );
 
 const App = () => {

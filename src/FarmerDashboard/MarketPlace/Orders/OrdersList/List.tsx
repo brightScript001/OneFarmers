@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { OrderTable } from "./OrderTable";
+import { OrderTable } from "./Table";
 import { useOrderContext } from "../../../../context/orderProvider";
 import { Order, DataGridRow } from "./Types";
 import {
