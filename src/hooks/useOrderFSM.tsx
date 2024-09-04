@@ -1,37 +1,36 @@
 import { useState } from "react";
 
 type OrderState =
-  | "Pending"
-  | "Approved"
-  | "Disputed"
-  | "Shipped"
-  | "Delivered"
-  | "Settled";
+  | "pending"
+  | "approved"
+  | "disputed"
+  | "shipped"
+  | "delivered"
+  | "settled";
 
-interface UseOrderFSM {
-  state: OrderState;
-  transition: (newState: OrderState) => void;
-}
+export const useOrderFSM = () => {
+  const [state, setState] = useState<OrderState | null>(null);
 
-export const useOrderFSM = (
-  initialState: OrderState = "Pending"
-): UseOrderFSM => {
-  const [state, setState] = useState<OrderState>(initialState);
+  const transition = async (newStatus: OrderState, orderId: string) => {
+    try {
+      const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ orderStatus: newStatus }),
+      });
 
-  const transition = (newState: OrderState) => {
-    const validTransitions: Record<OrderState, OrderState[]> = {
-      Pending: ["Approved", "Disputed"],
-      Approved: ["Shipped", "Disputed"],
-      Disputed: ["Approved", "Shipped"],
-      Shipped: ["Delivered"],
-      Delivered: ["Settled"],
-      Settled: [],
-    };
+      if (!response.ok) {
+        throw new Error(`Failed to update order status to ${newStatus}`);
+      }
 
-    if (validTransitions[state].includes(newState)) {
-      setState(newState);
-    } else {
-      throw new Error(`Invalid state transition from ${state} to ${newState}`);
+      const data = await response.json();
+      setState(newStatus);
+      return data;
+    } catch (error) {
+      console.error("Error in transition function:", error);
+      throw error;
     }
   };
 

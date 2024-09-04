@@ -1,23 +1,29 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import OrderContainer from "./SContainer";
-import OrderText from "./Text";
-import OrderActions from "./Buttons";
+import { useParams, useNavigate } from "react-router-dom";
+import OrderContainer from "./PContainer";
+import { OrderText } from "./Text";
+import { Buttons } from "./Buttons";
 import { useOrderContext } from "../../../../context/orderProvider";
 
 const OrderSummary: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const { orders } = useOrderContext();
+  const navigate = useNavigate();
+
   const order = orders.find((order) => order.orderId === orderId);
 
   if (!order) {
-    return <p>Order not found</p>;
+    return <p>Ops Order not found</p>;
   }
+
+  const handleDispute = () => {
+    navigate(`/farmer-dashboard/marketplace/order-summary/${orderId}/dispute`);
+  };
 
   return (
     <OrderContainer>
       <OrderText order={order} />
-      <OrderActions />
+      <Buttons onDispute={handleDispute} />
     </OrderContainer>
   );
 };

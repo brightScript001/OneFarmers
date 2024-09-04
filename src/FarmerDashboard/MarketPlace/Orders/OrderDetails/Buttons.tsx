@@ -7,7 +7,11 @@ const ButtonContainer = styled.div`
   justify-content: space-between;
 `;
 
-const OrderActions: React.FC = () => {
+interface ButtonProp {
+  onDispute: () => void;
+}
+
+export const Buttons: React.FC<ButtonProp> = ({ onDispute }) => {
   return (
     <ButtonContainer>
       <Button size="large" variation="primary">
@@ -16,11 +20,9 @@ const OrderActions: React.FC = () => {
       <Button size="large" variation="secondary">
         Message Customer
       </Button>
-      <Button size="large" variation="danger">
+      <Button size="large" variation="danger" onClick={onDispute}>
         Dispute Order
       </Button>
     </ButtonContainer>
   );
 };
-
-export default OrderActions;

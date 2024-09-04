@@ -7,9 +7,10 @@ import Login from "./Auth/LogIn";
 import VerifyEmail from "./Auth/VerifyEmail";
 import ForgotPassword from "./Auth/ForgotPassword";
 import PasswordReset from "./Auth/ResetPassword";
-import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/Index";
-import { Order } from "./FarmerDashboard/MarketPlace/Orders/Order";
-import OrderSummary from "./FarmerDashboard/MarketPlace/Orders/OrderDetails/Summary";
+import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/Page";
+import { Order } from "./FarmerDashboard/MarketPlace/Orders/Page";
+import OrderSummary from "./FarmerDashboard/MarketPlace/Orders/OrderDetails/Page";
+import DisputePage from "./FarmerDashboard/MarketPlace/Orders/Dispute/Page";
 
 const RegisterSeller = lazy(() => import("./Auth/SignUp"));
 const RegisterBuyer = lazy(() => import("./Auth/SignUp"));
@@ -17,7 +18,7 @@ const FarmerDashboard = lazy(
   () => import("./FarmerDashboard/DashboardHome/Dashboard")
 );
 const FarmerDashboardHome = lazy(
-  () => import("./FarmerDashboard/DashboardHome/DashboardHome")
+  () => import("./FarmerDashboard/DashboardHome/Page")
 );
 const MarketPlace = lazy(
   () => import("./FarmerDashboard/MarketPlace/MarketPlace")
@@ -46,6 +47,10 @@ const App = () => {
               <Route path="create-product" element={<CreateProductWrapper />} />
               <Route path="orders/:status" element={<Order />} />
               <Route path="order-summary/:orderId" element={<OrderSummary />} />
+              <Route
+                path="order-summary/:orderId/dispute"
+                element={<DisputePage />}
+              />
             </Route>
           </Route>
         </Routes>

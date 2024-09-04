@@ -45,7 +45,7 @@ const Wrapper = styled.div`
   margin: 20px 0;
 `;
 
-const OrderText: React.FC<{ order: any }> = ({ order }) => {
+export const OrderText: React.FC<{ order: any }> = ({ order }) => {
   const totalPrice = calculateTotalPrice(order.orderId);
 
   return (
@@ -99,4 +99,3 @@ const OrderText: React.FC<{ order: any }> = ({ order }) => {
     </>
   );
 };
-export default OrderText;
