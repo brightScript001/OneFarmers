@@ -15,10 +15,10 @@ const OrderActions: React.FC<{ onSubmitDispute: () => void }> = ({
 
   return (
     <ButtonGroup>
-      <Button size="small" variation="secondary" onClick={handleCancel}>
+      <Button size="medium" variation="secondary" onClick={handleCancel}>
         Cancel
       </Button>
-      <Button size="small" variation="primary" onClick={onSubmitDispute}>
+      <Button size="medium" variation="primary" onClick={onSubmitDispute}>
         Submit Dispute
       </Button>
     </ButtonGroup>
