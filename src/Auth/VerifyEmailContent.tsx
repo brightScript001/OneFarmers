@@ -3,7 +3,6 @@ import Button from "../ui/Button";
 import { Subtitle, Title } from "../ui/Title";
 
 interface VerifyEmailContentProps {
-  name: string;
   onRequestVerification: () => void;
 }
 
@@ -14,13 +13,12 @@ const Container = styled.div`
 `;
 
 export function VerifyEmailContent({
-  name,
   onRequestVerification,
 }: VerifyEmailContentProps) {
   return (
     <Container>
       <Title>Verify Your Email</Title>
-      <Subtitle>Hi {name},</Subtitle>
+      <Subtitle>Hi X,</Subtitle>
       <Subtitle>
         We're thrilled to welcome you to the Onefarm Tech community! To access
         all the amazing features waiting for you, simply verify your email

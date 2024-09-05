@@ -1,12 +1,12 @@
-import HomeIcon from "/Assets/icons/HomeIcon.svg";
-import MarketplaceIcon from "/Assets/icons/MarketplaceIcon.svg";
-import InventoryIcon from "/Assets/icons/InventoryIcon.svg";
-import PaymentIcon from "/Assets/icons/PaymentIcon.svg";
-import SupportIcon from "/Assets/icons/SupportIcon.svg";
-import ProfileIcon from "/Assets/icons/ProfileIcon.svg";
-import SignOutIcon from "/Assets/icons/SignOutIcon.svg";
-import BackButtonIcon from "/Assets/icons/BackButtonIcon.svg";
-import BellIcon from "/Assets/icons/BellIcon.svg";
+const BellIcon = "/Assets/icons/BellIcon.svg";
+const HomeIcon = "/Assets/icons/HomeIcon.svg";
+const MarketplaceIcon = "/Assets/icons/MarketplaceIcon.svg";
+const InventoryIcon = "/Assets/icons/InventoryIcon.svg";
+const PaymentIcon = "/Assets/icons/PaymentIcon.svg";
+const SupportIcon = "/Assets/icons/SupportIcon.svg";
+const ProfileIcon = "/Assets/icons/ProfileIcon.svg";
+const SignOutIcon = "/Assets/icons/SignOutIcon.svg";
+const BackButtonIcon = "/Assets/icons/BackButtonIcon.svg";
 
 export {
   BellIcon,

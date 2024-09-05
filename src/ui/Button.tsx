@@ -14,14 +14,13 @@ const sizes = {
   `,
   medium: css`
     font-size: var(--font-size-md);
-    padding: 0.4rem 1.4rem;
+    padding: 0.7rem 1.4rem;
     font-weight: 300;
-    min-width: 12.5rem;
     white-space: nowrap;
   `,
   large: css`
     font-size: var(--font-size-md);
-    padding: 0.4rem 2.4rem;
+    padding: 0.7rem 2.4rem;
     font-weight: 500;
     min-width: 18.75rem;
     white-space: nowrap;

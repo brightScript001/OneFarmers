@@ -1,4 +1,5 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Button from "../ui/Button";
 import Form from "../ui/Form";
 import FormRow from "../ui/FormRow";
@@ -18,30 +19,28 @@ function SignupForm() {
     register,
     formState: { errors },
     getValues,
-    handleSubmit,
-    reset,
   } = useForm<FormValues>();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FormValues> = ({
-    firstName,
-    lastName,
-    email,
-    password,
-  }) => {
-    console.log("Form Submitted:", { firstName, lastName, email, password });
-    reset();
-
-    navigate("/verify-email", { state: { name: `${firstName} ${lastName}` } });
-  };
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form>
       <FormRow label="First Name" error={errors.firstName?.message}>
         <Input
           type="text"
           id="firstName"
+          value={formValues.firstName}
           {...register("firstName", { required: "This field is required" })}
+          onChange={(e) =>
+            setFormValues({ ...formValues, firstName: e.target.value })
+          }
         />
       </FormRow>
 
@@ -49,7 +48,11 @@ function SignupForm() {
         <Input
           type="text"
           id="lastName"
+          value={formValues.lastName}
           {...register("lastName", { required: "This field is required" })}
+          onChange={(e) =>
+            setFormValues({ ...formValues, lastName: e.target.value })
+          }
         />
       </FormRow>
 

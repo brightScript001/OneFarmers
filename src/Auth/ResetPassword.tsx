@@ -1,4 +1,3 @@
-import Image from "/Assets/images/seller.png";
 import Logo from "../ui/Logo";
 import ResetPasswordIndex from "./ResetPasswordIndex";
 import Container from "../ui/Container";
@@ -10,7 +9,7 @@ function PasswordReset() {
   return (
     <Container>
       <ImageContainer>
-        <StyledImage src={Image} alt="Farmer" />
+        <StyledImage src="/Assets/images/seller.png" alt="Farmer" />
       </ImageContainer>
       <FormRow>
         <Logo />

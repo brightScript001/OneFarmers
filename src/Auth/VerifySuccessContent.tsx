@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import { Subtitle, Title } from "../ui/Title";
 import styled from "styled-components";
-
-// Define types for the component props
 interface VerificationSuccessContentProps {
-  name: string;
   onLoginRedirect: () => void;
 }
 
@@ -16,7 +13,6 @@ const Container = styled.div`
 `;
 
 export function VerificationSuccessContent({
-  name,
   onLoginRedirect,
 }: VerificationSuccessContentProps) {
   const [counter, setCounter] = useState(30);
@@ -37,7 +33,7 @@ export function VerificationSuccessContent({
   return (
     <Container>
       <Title>Email Verification Successful</Title>
-      <Subtitle>Hi {name},</Subtitle>
+      <Subtitle>Hi X,</Subtitle>
       <Subtitle>
         Your email has been verified successfully. We will be redirecting you to
         login to your dashboard and start selling your farm products.

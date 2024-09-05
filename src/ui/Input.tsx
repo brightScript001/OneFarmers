@@ -4,7 +4,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const Input = styled.input<InputProps>`
   padding: 1rem;
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   border: 1px solid var(--color-grey-300);
   border-radius: var(--border-radius-sm);
   background-color: var(--color-white-100);

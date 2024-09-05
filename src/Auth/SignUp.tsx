@@ -7,11 +7,8 @@ import StyledImage from "../ui/StyledImage";
 import ImageContainer from "../ui/ImageContainer";
 import FormContainer from "../ui/FormContainer";
 import { Title, Subtitle } from "../ui/Title";
-import SellerImage from "/Assets/images/seller.png";
-import BuyerImage from "/Assets/images/buyer.png";
 import { useMemo } from "react";
 
-// Styled component for the link
 const StyledLink = styled(Link)`
   color: var(--color-green-800);
   text-decoration: none;
@@ -21,7 +18,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-// Type for the location state
 interface LocationState {
   accountType: "buyer" | "seller";
 }
@@ -31,11 +27,12 @@ const Signup: React.FC = () => {
   const state = location.state as LocationState | undefined;
   const accountType = state?.accountType;
 
-  // Memoized image source and alt text based on accountType
   const { imageSrc, altText } = useMemo(() => {
     const isBuyer = accountType === "buyer";
     return {
-      imageSrc: isBuyer ? BuyerImage : SellerImage,
+      imageSrc: isBuyer
+        ? "/Assets/images/buyer.png"
+        : "/Assets/images/seller.png",
       altText: isBuyer ? "Buyer" : "Farmer",
     };
   }, [accountType]);

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Image from "/Assets/images/seller.png";
 import ForgotPasswordForm from "./ForgotPasswordForm";
 import EmailSent from "./EmailSent";
 import Logo from "../ui/Logo";
@@ -18,7 +17,7 @@ const ForgotPassword: React.FC = () => {
   return (
     <Container>
       <ImageContainer>
-        <StyledImage src={Image} alt="Farmer" />
+        <StyledImage src="/Assets/images/seller.png" alt="Farmer" />
       </ImageContainer>
       <FormContainer>
         <Logo />

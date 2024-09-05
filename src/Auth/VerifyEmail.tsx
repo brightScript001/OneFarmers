@@ -1,17 +1,11 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import { VerifyEmailContent } from "./VerifyEmailContent";
 import { VerificationSuccessContent } from "./VerifySuccessContent";
 import Logo from "../ui/Logo";
-import image from "/Assets/images/verify-email.png";
 import ImageContainer from "../ui/ImageContainer";
 import Container from "../ui/Container";
-
-// Define a type for the location state
-interface LocationState {
-  name?: string;
-}
 
 const StyledImage = styled.img`
   object-fit: cover;
@@ -28,10 +22,7 @@ const FormContainer = styled.div`
 `;
 
 function VerifyEmail() {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { name } = location.state as LocationState; // Typecast location.state
-  const userName = name || "User";
   const [isVerificationComplete, setIsVerificationComplete] = useState(false);
 
   const handleRequestVerification = () => {
@@ -47,20 +38,16 @@ function VerifyEmail() {
   return (
     <Container>
       <ImageContainer>
-        <StyledImage src={image} alt="Verify Email" />
+        <StyledImage src="/Assets/images/verify-email.png" alt="Verify Email" />
       </ImageContainer>
       <FormContainer>
         <Logo />
         {!isVerificationComplete ? (
           <VerifyEmailContent
-            name={userName}
             onRequestVerification={handleRequestVerification}
           />
         ) : (
-          <VerificationSuccessContent
-            name={userName}
-            onLoginRedirect={handleLoginRedirect}
-          />
+          <VerificationSuccessContent onLoginRedirect={handleLoginRedirect} />
         )}
       </FormContainer>
     </Container>
