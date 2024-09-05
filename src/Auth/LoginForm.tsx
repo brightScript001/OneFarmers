@@ -19,15 +19,17 @@ function LoginForm() {
     formState: { errors },
   } = useForm<LoginFormData>();
   const [isLoading, setIsLoading] = useState(false);
+  const [buttonText, setButtonText] = useState("Log in");
 
-  // Define the onSubmit handler with type
-  const onSubmit: SubmitHandler<LoginFormData> = (data) => {
+  const onSubmit: SubmitHandler<LoginFormData> = (data: LoginFormData) => {
     if (!data.email || !data.password || !data.role) return;
     setIsLoading(true);
+    setButtonText("Loading...");
 
     console.log("Form Submitted:", data);
 
     setIsLoading(false);
+    setButtonText("Log in");
   };
 
   return (
@@ -91,9 +93,7 @@ function LoginForm() {
       </FormRow>
 
       <FormRow>
-        <Button disabled={isLoading}>
-          {!isLoading ? "Log in" : "Loading..."}
-        </Button>
+        <Button disabled={isLoading}>{buttonText}</Button>
       </FormRow>
     </Form>
   );

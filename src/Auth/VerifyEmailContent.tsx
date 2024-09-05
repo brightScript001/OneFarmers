@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Button from "../ui/Button";
 import { Subtitle, Title } from "../ui/Title";
+import { useSelector } from "react-redux";
+import { AppState } from "../store";
 
 interface VerifyEmailContentProps {
   onRequestVerification: () => void;
@@ -15,10 +17,11 @@ const Container = styled.div`
 export function VerifyEmailContent({
   onRequestVerification,
 }: VerifyEmailContentProps) {
+  const user = useSelector((store: AppState) => store.user.firstName);
   return (
     <Container>
       <Title>Verify Your Email</Title>
-      <Subtitle>Hi X,</Subtitle>
+      <Subtitle>Hi {user},</Subtitle>
       <Subtitle>
         We're thrilled to welcome you to the Onefarm Tech community! To access
         all the amazing features waiting for you, simply verify your email

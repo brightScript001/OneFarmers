@@ -1,46 +1,46 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import Button from "../ui/Button";
 import Form from "../ui/Form";
 import FormRow from "../ui/FormRow";
 import Input from "../ui/Input";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createUser } from "../slices/userSlice";
 
 interface FormValues {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
-  passwordConfirm: string;
+  confirmPassword: string;
 }
 
 function SignupForm() {
   const {
     register,
     formState: { errors },
+    watch,
+    handleSubmit,
     getValues,
   } = useForm<FormValues>();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [formValues, setFormValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    passwordConfirm: "",
-  });
+  const { firstName, lastName, email, password, confirmPassword } = watch();
+
+  function onSubmit() {
+    if (!firstName || !lastName || !email || !password) return;
+    dispatch(createUser(firstName, lastName, email, password));
+    navigate("/verify-email");
+  }
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="First Name" error={errors.firstName?.message}>
         <Input
           type="text"
           id="firstName"
-          value={formValues.firstName}
           {...register("firstName", { required: "This field is required" })}
-          onChange={(e) =>
-            setFormValues({ ...formValues, firstName: e.target.value })
-          }
         />
       </FormRow>
 
@@ -48,11 +48,7 @@ function SignupForm() {
         <Input
           type="text"
           id="lastName"
-          value={formValues.lastName}
           {...register("lastName", { required: "This field is required" })}
-          onChange={(e) =>
-            setFormValues({ ...formValues, lastName: e.target.value })
-          }
         />
       </FormRow>
 
@@ -86,15 +82,15 @@ function SignupForm() {
 
       <FormRow
         label="Re-enter password"
-        error={errors.passwordConfirm?.message}
+        error={errors.confirmPassword?.message}
       >
         <Input
           type="password"
           id="passwordConfirm"
-          {...register("passwordConfirm", {
+          {...register("confirmPassword", {
             required: "This field is required",
             validate: (value) =>
-              value === getValues().password || "Passwords need to match",
+              value === getValues("password") || "Passwords need to match",
           })}
         />
       </FormRow>

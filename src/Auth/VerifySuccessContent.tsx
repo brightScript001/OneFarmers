@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import { Subtitle, Title } from "../ui/Title";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { AppState } from "../store";
 interface VerificationSuccessContentProps {
   onLoginRedirect: () => void;
 }
@@ -30,10 +32,12 @@ export function VerificationSuccessContent({
     return () => clearInterval(timer);
   }, [counter, onLoginRedirect]);
 
+  const user = useSelector((store: AppState) => store.user.firstName);
+
   return (
     <Container>
       <Title>Email Verification Successful</Title>
-      <Subtitle>Hi X,</Subtitle>
+      <Subtitle>Hi {user}</Subtitle>
       <Subtitle>
         Your email has been verified successfully. We will be redirecting you to
         login to your dashboard and start selling your farm products.
