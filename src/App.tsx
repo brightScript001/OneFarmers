@@ -7,25 +7,21 @@ import Login from "./Auth/LogIn";
 import VerifyEmail from "./Auth/VerifyEmail";
 import ForgotPassword from "./Auth/ForgotPassword";
 import PasswordReset from "./Auth/ResetPassword";
-const RegisterSeller = lazy(() => import("./Auth/SignUp"));
-const RegisterBuyer = lazy(() => import("./Auth/SignUp"));
-// import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/Page";
-// import { Order } from "./FarmerDashboard/MarketPlace/Orders/Page";
-// import OrderSummary from "./FarmerDashboard/MarketPlace/Orders/OrderDetails/Page";
-// import DisputePage from "./FarmerDashboard/MarketPlace/Orders/Dispute/Page";
+import RegisterSeller from "./Auth/SignUp";
+import RegisterBuyer from "./Auth/SignUp";
+import MarketPlaceIndex from "./FarmerDashboard/MarketPlace/CreateProduct/Page";
+import DisputePage from "./FarmerDashboard/MarketPlace/Orders/Dispute/Page";
 
-// const FarmerDashboard = lazy(
-//   () => import("./FarmerDashboard/DashboardHome/Dashboard")
-// );
-// const FarmerDashboardHome = lazy(
-//   () => import("./FarmerDashboard/DashboardHome/Page")
-// );
-// const MarketPlace = lazy(
-//   () => import("./FarmerDashboard/MarketPlace/MarketPlace")
-// );
-// const CreateProductWrapper = lazy(
-//   () => import("./FarmerDashboard/MarketPlace/CreateProduct/Wrapper")
-// );
+const Order = lazy(() => import("./FarmerDashboard/MarketPlace/Orders/Page"));
+const OrderSummary = lazy(
+  () => import("./FarmerDashboard/MarketPlace/Orders/OrderDetails/Page")
+);
+const FarmerDashboardHome = lazy(
+  () => import("./FarmerDashboard/DashboardHome/Page")
+);
+const MarketPlace = lazy(
+  () => import("./FarmerDashboard/MarketPlace/MarketPlace")
+);
 
 const App = () => {
   return (
@@ -40,19 +36,20 @@ const App = () => {
           <Route path="/reset-password" element={<PasswordReset />} />
           <Route path="/register/seller" element={<RegisterSeller />} />
           <Route path="/register/buyer" element={<RegisterBuyer />} />
-          {/* <Route path="/farmer-dashboard" element={<FarmerDashboard />}>
+
+          {/* Lazy-loaded routes */}
+          <Route path="/farmer-dashboard">
             <Route path="home" element={<FarmerDashboardHome />} />
             <Route path="marketplace" element={<MarketPlace />}>
               <Route index element={<MarketPlaceIndex />} />
-              <Route path="create-product" element={<CreateProductWrapper />} />
               <Route path="orders/:status" element={<Order />} />
               <Route path="order-summary/:orderId" element={<OrderSummary />} />
               <Route
                 path="order-summary/:orderId/dispute"
                 element={<DisputePage />}
               />
-            </Route> 
-          </Route>*/}
+            </Route>
+          </Route>
         </Routes>
       </Suspense>
     </Router>

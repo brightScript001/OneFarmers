@@ -1,7 +1,8 @@
-import { useOrderContext } from "../context/orderProvider";
+import { useSelector } from "react-redux";
+import { AppState } from "../store";
 
 export const calculateTotalPrice = (customerId: string): number => {
-  const { orders } = useOrderContext();
+  const orders = useSelector((state: AppState) => state.orders.orders) ?? [];
 
   const customerOrder = orders.find((order) => order.orderId === customerId);
 

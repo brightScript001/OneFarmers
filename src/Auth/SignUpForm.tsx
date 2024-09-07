@@ -4,8 +4,9 @@ import Form from "../ui/Form";
 import FormRow from "../ui/FormRow";
 import Input from "../ui/Input";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store";
 import { createUser } from "../slices/userSlice";
+import { useDispatch } from "react-redux";
 
 interface FormValues {
   firstName: string;
@@ -24,7 +25,7 @@ function SignupForm() {
     getValues,
   } = useForm<FormValues>();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const { firstName, lastName, email, password, confirmPassword } = watch();
 
